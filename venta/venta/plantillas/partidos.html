@@ -1,0 +1,21 @@
+{% extends 'index1.html' %}
+{% block cuerpo%}
+{% block tiitulo %}
+	<br><br>
+	<center><font color="blue"><h1> Partido de la Fecha</h1></font></center>
+{% endblock %}
+<br>
+<br>
+<br>
+<center>
+<span style="color: white;">
+	{% for item in par%}
+		<a href="/sectors/{{item.id}}"><font color="orange"><h2>
+		
+		{{item.equipo1}} vs {{item.equipo2}} ( {{item.torneo}})<br><br><br>
+		
+	</font></h2>
+	</a>
+	{% endfor %}
+</center>	
+{% endblock %}

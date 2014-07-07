@@ -1,0 +1,39 @@
+{% extends "index2.html" %}
+{% block cuerpo %}
+{% block titulo %}
+	<center><font color="orange" style="verdana" size="5px">USUARIOS REGISTRADOS</font></center>
+{% endblock%}
+
+<table border="1px"width="100%" align="center">
+	<th width="30%">
+		Nombre
+	</th>
+	<th width="40%">
+		Apellido
+	</th>
+	<th width="15%">
+		CI
+	</th>
+	<th width="15%">
+		EMAIL
+	</th>
+	{% for item in datos %}
+		<tr>
+			<TD>
+				{{item.nombre}}
+			</TD>
+			<TD>
+				{{item.apellido}}
+			</TD>
+			<TD>
+				{{item.ci}}
+			</TD>
+			<TD>
+				{{item.email}}
+			</TD>
+				
+		</tr>	
+		
+	{% endfor %}
+	</table>
+{% endblock %}

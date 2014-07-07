@@ -1,0 +1,40 @@
+{% extends "index2.html" %}
+{% block cuerpo %}
+<table border="1px"width="100%" align="center">
+	<th width="25%">
+		Nombre
+	</th>
+	<th width="35%">
+		Apellido
+	</th>
+	<th width="15%">
+		CI
+	</th>
+	<th width="5%">
+		N.asiento
+	</th>
+	<th width="20%">
+		Sector
+	</th>
+	{% for i in reservas %}
+		<tr>
+			<TD>
+				{{i.nombre}}
+			</TD>
+			<TD>
+				{{i.apellido}}
+			</TD>
+			<TD>
+				{{i.CI}}
+			</TD>
+			<TD>
+				{{i.idasientomhb}}
+			</TD>
+			<TD>
+				{{i.idasiento.sector}} fgfg
+			</TD>	
+		</tr>	
+		
+	{% endfor %}
+	</table>
+{% endblock %}

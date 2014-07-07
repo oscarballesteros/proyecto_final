@@ -1,0 +1,58 @@
+{% extends "index3.html" %}
+{% block cuerpo %}
+<center><font color="orange" style="verdana" size="5px">VENTAS</font></center>
+<table border="1px"width="100%" align="center">
+	<th width="20%">
+		Nombre
+	</th>
+	<th width="25%">
+		Apellido
+	</th>
+	<th width="15%">
+		CI
+	</th>
+	<th width="5%">
+		N.asiento
+	</th>
+	<th width="20%">
+		Sector
+	</th>
+	<th width="15%">
+		Precio
+	</th>
+	{% for item in venta %}
+	{% if item.idasiento.estado = 'vendido' %}
+		<tr>
+			<TD>
+				{{item.Nombre}}
+			</TD>
+			<TD>
+				{{item.Apellido}}
+			</TD>
+			<TD>
+				{{item.CI}}
+			</TD>
+			<TD>
+				{{item.idasiento}}
+			</TD>
+			<TD>
+				{{item.idasiento.sector}}
+			</TD>
+			<TD>
+				{% if item.idasiento.estado = 'vendido'%}
+					{% if item.idasiento.sector = 'preferencia' %}
+						{{item.idasiento.idencuentros.preferencia}}
+					{% elif item.idasiento.sector = 'general'%}
+						{{item.idasiento.idencuentros.general}}
+					{% elif item.idasiento.sector = 'curvasur'%}
+						{{item.idasiento.idencuentros.curvaS}}
+					{% elif item.idasiento.sector = 'curvanorte'%}
+						{{item.idasiento.idencuentros.curvaN}}
+					{% endif %}
+				{% endif %}
+			</TD>	
+		</tr>	
+	{% endif %}
+	{% endfor %}
+	</table>
+{% endblock %}

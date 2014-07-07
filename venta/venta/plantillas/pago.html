@@ -1,0 +1,80 @@
+{% extends 'index1.html' %}
+{% block cuerpo%}
+<span style="color: white;">
+	
+			<form acion="" method="post" enctype='multipart/form-data' class="form-horizontal" style="color: orange;">
+				<table border='5' background ="/static/css/images/pref1.jpg">
+					<tr>
+						<td width='500px' >
+							<center><font color="yellow"><h2>Formulario de Pago</h2></font></center>
+							{% csrf_token %}
+							<center>
+							<table bgcolor="#32CD32">
+								<tr>
+								<td align='center'>{{formu.pais.label_tag}}</td>
+								<td>&nbsp;&nbsp;</td>
+								<td align='center'>{{formu.tarjeta.label_tag}}</td>
+								</tr>
+								<tr>
+								<td align='center'>{{formu.pais}}</td>
+								<td>&nbsp;&nbsp;</td>
+								<td align='center'>{{formu.tarjeta}}</td>
+								</tr>
+								<tr>
+									<td>&nbsp;&nbsp;</td>
+								</tr>
+								<tr>
+								<td align='center'>{{formu.Numero_de_tarjeta.label_tag}}</td>
+								<td>&nbsp;&nbsp;</td>
+								<td align='center'>{{formu.fecha_vencimiento.label_tag}}</td>
+								</tr>
+								<tr>
+								<td align='center'>{{formu.Numero_de_tarjeta}}</td>
+								<td>&nbsp;&nbsp;</td>
+								<td align='center'>{{formu.fecha_vencimiento}}</td>
+								</tr>
+								<tr>
+									<td>&nbsp;&nbsp;</td>
+								</tr>
+								<tr>
+								<td align='center' colspan='2'>{{formu.codigo_seg.label_tag}}</td>
+								</tr>
+								<tr>
+								<td align='center' colspan='2'>{{formu.codigo_seg}}</td>
+								</tr>
+								<br>
+							</table>
+							</center>
+						<table><br><br>
+							<center>
+							<tr>
+								<td align='right' width=150px><button type="submit",value="Enviar">Enviar</button></td>
+								<td align='center' width=150px></td>
+								<td align='left' width=150px><button type="reset",value="cancelar">Cancelar</button></td>
+							</center>
+							</tr>
+						</table>
+						</td>
+						<td width='500px' align='top' style="border-left:1px solid;">
+							<center><font color="blue"><h2>Datos del Cliente</h2></font><br>
+							<p>Nombre: {{res.Nombre}}</p><br>
+							<p>Apellido: {{res.Apellido}}</p><br>
+							<p>C. I.: {{res.CI}}</p><br>
+							<p>Fecha: {{res.fecha.date}}</p><br>
+							<p>Telefono: {{res.telefono}}</p><br><br>
+							<p><font color='#00FF00' face="verdana">Nota: Verifique sus datos antes de Enviar</font></p>
+							</center>
+						</td>
+					</tr>
+				</table>
+				
+				<!--<br><br>
+				<table align='center' >
+					<tr>
+						<td align='right' width=150px><button type="submit",value="Enviar">Enviar</button></td>
+						<td align='center' width=150px></td>
+						<td align='left' width=150px><button type="reset",value="cancelar">Cancelar</button></td>
+					</tr>
+				</table>-->
+			</form>
+{% endblock %}

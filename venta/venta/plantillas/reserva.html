@@ -1,0 +1,41 @@
+{%extends "index1.html"%}
+{% block cuerpo %}
+<span style="color: blue;">
+	<div class"row">
+		<div class="span3"></div>
+		<div class="span6">
+			<form acion="" method="post" enctype='multipart/form-data' class="form-horizontal" style="color: orange;">
+				<table  bgcolor="black" border='10'>
+					<td width="700px" height="300px">
+					<center><font color="blue"><h2>Formulario de Registro de Reservas</font>
+					<font color="orange">	<br>Asiento Numero  {{asi.numero}}
+					</h2></font></center><br>
+					<form action="" method="post"  style="color: orange;">
+						
+						{% csrf_token %}
+						<div id="alinear-for-reserva">
+						{% for dato in formu %}
+							{{dato.errors}}	
+							
+							<table><center>{{dato.label_tag}}{{dato}}</table></center>
+
+						{% endfor %}
+
+						<br><center>
+						<button type="submit",value="Enviar"><center>Pagar</button>				
+						<button type="reset",value="cancelar">Cancelar</button></center>
+						</div>
+					</form>
+					</td>
+
+				</table>
+				
+				
+			</form>
+		</div>
+		<div class="span3"></div>
+	</div><neter>
+	<script type="text/javascript">
+		$('label').addClass('control-label')
+	</script>
+{% endblock  %}

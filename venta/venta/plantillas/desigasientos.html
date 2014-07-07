@@ -1,0 +1,33 @@
+{% extends 'index2.html' %}
+{% block cuerpo %}
+<span style="color: write;">
+	<div class"caja">
+		<div class="contenedor"></div>
+		<div class="registro"><br><br>
+			<center><h3><font face="rockwell" size=5px color="blue">Designacion de Asientos</font></h3><br>
+			<form acion="" method="post" enctype='multipart/form-data' class="form-horizontal" style="color: orange;">
+				{% csrf_token %}
+				{% for dato in formu %}
+					{{dato.errors}}
+					<div class"fregistro">
+						{{dato.label_tag}}<br>{{dato}}
+							
+											
+						
+					</div>
+				{% endfor %}
+				<br><br>
+				<table align='center' >
+					<tr>
+						<td align='right' width=150px><button type="submit",value="Guardar">Guardar</button>
+						<td align='left' width=150px><button type="reset",value="Borrar">Borrar</button></td>
+					</tr>
+				</table>
+			</form></center>
+		</div>
+		<div class="span3"></div>
+	</div>
+	<script type="text/javascript">
+		$('label').addClass('control-label')
+	</script>
+{% endblock  %}

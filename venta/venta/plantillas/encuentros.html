@@ -1,0 +1,43 @@
+{% extends 'index3.html' %}
+{% block cuerpo %}
+{% block titulo%}<br>
+<center><font color="orange" face="impact" size='5'>DESIGNACION DE PARTIDOS</font></center>
+{% endblock %}
+<span style="color: green;">
+	<div class"row">
+		<div class="span3"></div>
+		<div class="registro" >
+			
+			<form acion="" method="post" enctype='multipart/form-data' class="form-horizontal" style="color: orange;"><br><br>
+				<div>
+					{% csrf_token %}
+					{% for dato in formu %}
+						{{dato.errors}}
+						<div class"span3" >
+							<div>
+								<center>
+									{{dato.label_tag}}<br>
+									{{dato}}
+								</center>
+										
+							</div>
+						</div>
+					{% endfor %}
+					<br>
+					<center>
+					<td align='right' width=150px><button type="submit",value="Guardar">Guardar</button></td>
+						<td align='center' width=150px></td>
+						<td align='left' width=150px><button type="reset",value="Borrar">Borrar</button></td>
+				<td></center>
+				</div>
+				
+			</div>
+				
+			</form></center>
+		</div>
+		<div class="span3"></div>
+	</div>
+	<script type="text/javascript">
+		$('label').addClass('control-label')
+	</script>
+{% endblock  %}

@@ -1,0 +1,116 @@
+<!doctype html>
+<hmtl>
+	<head>
+		<title>Preferencia</title>
+    <style type="text/css"> 
+a:hover
+{
+background-color:red;
+}
+a:link {color:green;}
+a:visited {color:black;}
+a:active {color:blue;}
+a{
+  text-decoration: none;
+}
+#cuadrado_disponible{
+  float: left;
+  width: 20px;
+  height: 20px;
+  font-size: 15px;
+  text-align: center;
+  color:red;
+  background: green;
+  border: 1px ;
+  margin: 1px;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+}
+#cuadrado_reservado{
+  float: left;
+  width: 20px;
+  height: 20px;
+  font-size: 15px;
+  text-align: center;
+  color:red;
+  background: yellow;
+  border: 1px ;
+  margin: 1px;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+}
+#cuadrado_vendido{
+  float: left;
+  width: 20px;
+  height: 20px;
+  font-size: 15px;
+  text-align: center;
+  color:red;
+  background: red;
+  border: 1px ;
+  margin: 1px;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+}
+
+#cuadrado{
+  float: left;
+  width: 20px;
+  height: 20px;
+  font-size: 15px;
+  text-align: center;
+  color:red;
+  background: green;
+  border: 1px ;
+  margin: 1px;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+}
+
+#resultado-asientos{
+  display: block;
+  width:33%;
+  margin: 0 auto;
+  border:solid 1px #000;
+}
+
+</style>
+	
+        </script>
+	</head>
+
+<body background="/static/css/images/preferencia1.jpg" >
+   <br>
+   
+	   <font color="#000080" size=10px; style="verdana" ><center> SECTOR  DE  PREFERENCIA </center></font>
+     <font color="red" size=6 face="impact">  <br>PRECIO:
+            <font color="blue" size=7> {{enc.preferencia}}<font color="orange">Bs</font></font>
+     </font>
+  
+  <br>
+  <br>
+  <br>
+  <br>
+  
+
+
+  
+{% for r in res %}
+  {% if r.estado == 'disponible' %}
+    <div id="cuadrado_{{r.estado}}" ><a href="/reservas/{{r.id}}/">{{r.numero}}</a></div>
+  {% elif r.estado == 'reservado' %}
+    <div id="cuadrado_{{r.estado}}" ><a href="/paypal/{{r.id}}">{{r.numero}}</a></div> 
+  {% else %}
+    <div id="cuadrado_{{r.estado}}" ><a href="">{{r.numero}}</a></div> 
+  {% endif %} 
+{% endfor %}
+<!--
+
+{% for i in x %}
+    {% for j in y %}
+      <div id="cuadrado" ><a href="/reservas/{{j}}/">{{j}}</a></div>
+    {% endfor %}
+    <br>
+{% endfor %}-->
+</body>
+</html>
